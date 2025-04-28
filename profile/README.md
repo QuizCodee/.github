@@ -14,6 +14,8 @@
 
 Microservice Created with Eureka Server and Api Gateway.
 
+Please find the POSTMAN collections for the services in .github repository.
+
 Please follow the steps to run the services.
 
 ### Dependencies
