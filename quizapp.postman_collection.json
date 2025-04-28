@@ -1,0 +1,408 @@
+{
+	"info": {
+		"_postman_id": "7e1e31e5-4ae9-44ff-bf9a-c9ec05909f1d",
+		"name": "quizapp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7906619"
+	},
+	"item": [
+		{
+			"name": "question",
+			"item": [
+				{
+					"name": "question/category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{question-service}}/question/category/JAVA",
+							"host": [
+								"{{question-service}}"
+							],
+							"path": [
+								"question",
+								"category",
+								"JAVA"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "question/allQuestions",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{question-service}}/question/allQuestions",
+							"host": [
+								"{{question-service}}"
+							],
+							"path": [
+								"question",
+								"allQuestions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "question/add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"category\": \"Java\",\r\n\"difficultyLevel\": \"Easy\",\r\n\"option1\": \"1\",\r\n\"option2\": \"2\",\r\n\"option3\": \"3\",\r\n\"option4\": \"4\",\r\n\"questionTitle\": \"Maximum value for short in java\",\r\n\"rightAnswer\": \"3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{question-service}}/question/add",
+							"host": [
+								"{{question-service}}"
+							],
+							"path": [
+								"question",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "question/getScore",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>Score</th>",
+									"    </tr>",
+									"    <tr>",
+									"        <td>{{response}}</td>",
+									"    </tr>",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.text() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n{\r\n\"id\":10,\r\n\"response\":\"ArrayList\"\r\n},\r\n{\r\n\"id\":2,\r\n\"response\":\"5\"\r\n},\r\n{\r\n\"id\":17,\r\n\"response\":\"127\"\r\n},\r\n{\r\n\"id\":8,\r\n\"response\":\"To terminate a loop or switch statement and transfer control to the next statement.\"\r\n},\r\n{\r\n\"id\":7,\r\n\"response\":\"do-while loop\"\r\n}\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{question-service}}/question/getScore",
+							"host": [
+								"{{question-service}}"
+							],
+							"path": [
+								"question",
+								"getScore"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "question/delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{question-service}}/question/delete/21",
+							"host": [
+								"{{question-service}}"
+							],
+							"path": [
+								"question",
+								"delete",
+								"21"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "question/getQuestions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>Score</th>",
+									"    </tr>",
+									"    <tr>",
+									"        <td>{{response}}</td>",
+									"    </tr>",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.text() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[1,3,5,9]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{question-service}}/question/getQuestions",
+							"host": [
+								"{{question-service}}"
+							],
+							"path": [
+								"question",
+								"getQuestions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "quiz",
+			"item": [
+				{
+					"name": "quiz/create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"categoryName\":\"Java\",\r\n    \"numQuestions\":7,\r\n    \"title\":\"Java tEST\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{quiz-service}}/quiz/create",
+							"host": [
+								"{{quiz-service}}"
+							],
+							"path": [
+								"quiz",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "quiz/get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-gateway}}/quiz/get/2",
+							"host": [
+								"{{api-gateway}}"
+							],
+							"path": [
+								"quiz",
+								"get",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "quiz/submit",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `\r",
+									"<canvas id=\"myChart\" height=\"75\"></canvas>\r",
+									"\r",
+									"<script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js\"></script> \r",
+									"\r",
+									"<script>\r",
+									"    var ctx = document.getElementById(\"myChart\");\r",
+									"\r",
+									"    var myChart = new Chart(ctx, {\r",
+									"        type: \"bar\",\r",
+									"        data: {\r",
+									"            labels: ['Timestamp', 'Status', 'Error', 'Path'],\r",
+									"            datasets: [{\r",
+									"                data: [0, 0, 0, 0],\r",
+									"                \r",
+									"                // Change these colours to customize the chart\r",
+									"                backgroundColor: [\"#003f5c\", \"#58508d\", \"#bc5090\", \"#ff6361\"],\r",
+									"            }]\r",
+									"        },\r",
+									"        options: {\r",
+									"            legend: { display: false },\r",
+									"            title: {\r",
+									"                display: true,\r",
+									"                text: 'Response Data'\r",
+									"            },\r",
+									"            scales: {\r",
+									"                xAxes: [{\r",
+									"                    display: true,\r",
+									"                    scaleLabel: {\r",
+									"                        display: true,\r",
+									"                        labelString: 'Data'\r",
+									"                    }\r",
+									"                }],\r",
+									"                yAxes: [{\r",
+									"                    display: true,\r",
+									"                    scaleLabel: {\r",
+									"                        display: true,\r",
+									"                        labelString: 'Value'\r",
+									"                    }\r",
+									"                }]\r",
+									"            }\r",
+									"        }\r",
+									"\r",
+									"    });\r",
+									"\r",
+									"    // Access the data passed to pm.visualizer.set() from the JavaScript\r",
+									"    // code of the Visualizer template\r",
+									"    pm.getData(function (err, value) {\r",
+									"        myChart.data.datasets[0].data = [\r",
+									"            value.response.timestamp,\r",
+									"            value.response.status,\r",
+									"            value.response.error,\r",
+									"            value.response.path\r",
+									"        ];\r",
+									"        myChart.update();\r",
+									"    });\r",
+									"\r",
+									"</script>`;\r",
+									"\r",
+									"function constructVisualizerPayload() {\r",
+									"    var res = pm.response.json();\r",
+									"    \r",
+									"    var visualizerData = {\r",
+									"        \r",
+									"        // Labels take an array of strings\r",
+									"        timestamp: res.timestamp,\r",
+									"        status: res.status,\r",
+									"        error: res.error,\r",
+									"        path: res.path\r",
+									"    };\r",
+									"\r",
+									"    return {response: visualizerData};\r",
+									"}\r",
+									"\r",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n{\r\n\"id\":17,\r\n\"response\":\"127\"\r\n},\r\n{\r\n\"id\":9,\r\n\"response\":\"+\"\r\n},\r\n\r\n{\r\n\"id\":6,\r\n\"response\":\"final int x = 5;\"\r\n},\r\n{\r\n\"id\":4,\r\n\"response\":\"throw\"\r\n},\r\n{\r\n\"id\":2,\r\n\"response\":\"5\"\r\n}\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-gateway}}/quiz/submit/1",
+							"host": [
+								"{{api-gateway}}"
+							],
+							"path": [
+								"quiz",
+								"submit",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
